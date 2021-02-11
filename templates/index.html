@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+ <h1>Will you get admitted to the USA university? Assess your chances!<h1>
+	<h2>TOEFL_Score: please enter your total TOEFL score</h2>
+	<h2>University_Rating: please enter your university rating rnging from 1 for the lowest to 5 for the highest</h2>
+	<h2>Research: if you have done undergraduate research during Bachelor/Master degree please enter 1 otherwise enter 0</h2>
+	<h2>LOR: please address the quality of your recommendation letters on the scale from 1 to 5</h2>
+	<h2>SOP: please assess the quality of your statement of purpose on the scale from 1 to 5</h2>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="TOEFL_Score" placeholder="TOEFL_Score" required="required" />
+        <input type="text" name="University_Rating" placeholder="University_Rating" required="required" />
+		<input type="text" name="Research" placeholder="Research" required="required" />
+        <input type="text" name="LOR" placeholder="LOR" required="required" />
+        <input type="text" name="SOP" placeholder="SOP" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
